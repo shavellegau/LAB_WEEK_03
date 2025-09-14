@@ -16,7 +16,7 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // kalau nggak butuh argumen, bagian param1/param2 dibuang aja
+        // Kalau nggak butuh argumen tambahan lain, cukup kosongin
     }
 
     override fun onCreateView(
@@ -25,6 +25,16 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate layout fragment_detail.xml
         return inflater.inflate(R.layout.fragment_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Ambil ID kopi dari arguments
+        val coffeeId = arguments?.getInt(COFFEE_ID, 0) ?: 0
+
+        // Tampilkan data sesuai ID
+        setCoffeeData(coffeeId)
     }
 
     fun setCoffeeData(id: Int) {
@@ -43,5 +53,15 @@ class DetailFragment : Fragment() {
             }
         }
     }
-}
 
+    companion object {
+        private const val COFFEE_ID = "COFFEE_ID"
+
+        fun newInstance(coffeeId: Int) =
+            DetailFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(COFFEE_ID, coffeeId)
+                }
+            }
+    }
+}
