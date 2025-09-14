@@ -66,7 +66,6 @@ class MainFragment : Fragment() {
         super.onDetach()
         Log.d(TAG, "onDetach")
     }
-
     companion object {
         private const val TAG = "MainFragment"
 
