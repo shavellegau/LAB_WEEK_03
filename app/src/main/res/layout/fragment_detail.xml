@@ -8,6 +8,12 @@
     android:padding="20dp"
     tools:context=".DetailFragment">
 
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
     <TextView
         android:id="@+id/coffee_title"
         android:layout_width="match_parent"
@@ -15,7 +21,8 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="22sp"
-        tools:text="@string/affogato_title" />
+        tools:text="@string/affogato_title"
+        android:layout_marginTop="16dp"/>
 
     <View
         android:layout_width="match_parent"
